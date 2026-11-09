@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crush"
+version = "1.0.0"
+description = "CRUSH: context-mixing lossless compressor for .txt, .docx and .pdf"
+requires-python = ">=3.13,<3.14"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Anmol Rajesh Patil" }]
+
+[project.scripts]
+crush = "crush.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["crush*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:starlette", "ignore:.*httpx.*:DeprecationWarning"]
